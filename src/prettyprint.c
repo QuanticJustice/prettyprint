@@ -3,5 +3,5 @@
 
 void prettyprint( int num )
 {
-	printf( "Number is: %d\n" );
+	printf( "Number is: %d\n", num );
 }
