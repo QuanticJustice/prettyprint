@@ -1,9 +1,19 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required( VERSION 2.8 )
 
-message( "PROJECT_SOURCE_DIR points to " ${PROJECT_SOURCE_DIR})
-message( "PROJECT_BINARY_DIR points to " ${PROJECT_BINARY_DIR})
+include_directories( ${prettyprint_SOURCE_DIR}/include )
+add_library( prettyprint SHARED prettyprint.c )
 
-message( "prettyprint_SOURCE_DIR points to " ${prettyprint_SOURCE_DIR} )
+# install the targets to specific directories
+install( TARGETS prettyprint DESTINATION ${prettyprint_SOURCE_DIR}/lib )
+install( FILES ${prettyprint_SOURCE_DIR}/include/prettyprint.h DESTINATION ${prettyprint_SOURCE_DIR}/inc )
+
+#cmake_minimum_required(VERSION 2.8)
+#project( prettyprint )
+
+#message( "PROJECT_SOURCE_DIR points to " ${PROJECT_SOURCE_DIR} )
+#message( "PROJECT_BINARY_DIR points to " ${PROJECT_BINARY_DIR} )
+
+#message( "prettyprint_SOURCE_DIR points to " ${prettyprint_SOURCE_DIR} )
 
 #FOLLOWING BUILT MAIN APP FROM prettyprint_driver.c
 #include_directories("${PROJECT_SOURCE_DIR}/include")
@@ -14,8 +24,12 @@ message( "prettyprint_SOURCE_DIR points to " ${prettyprint_SOURCE_DIR} )
 #install(TARGETS prettyprint DESTINATION "${PROJECT_SOURCE_DIR}/bin")
 
 #TRYING DOING A STATIC LIBRARY OBJECT
-include_directories("${prettyprint_SOURCE_DIR}/include")
+#include_directories("${PROJECT_SOURCE_DIR}/src")
 
-add_library(prettyprint STATIC prettyprint.c)
+#include_directories( "${PROJECT_SOURCE_DIR}/src" )
+#include_directories( "${PROJECT_SOURCE_DIR}/include" )
 
-install(TARGETS prettyprint DESTINATION ${PROJECT_SOURCE_DIR}/lib)
+#add_library( prettyprint STATIC prettyprint.c )
+
+#install( TARGETS prettyprint DESTINATION ${PROJECT_SOURCE_DIR}/lib )
+#install( FILES prettyprint.h DESTINATION ${PROJECT_SOURCE_DIR}/inc )
