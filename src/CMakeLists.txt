@@ -1,11 +1,11 @@
 cmake_minimum_required( VERSION 2.8 )
 
-include_directories( ${prettyprint_SOURCE_DIR}/include )
+include_directories( ${PROJECT_SOURCE_DIR}/include )
 add_library( prettyprint SHARED prettyprint.c )
 
 # install the targets to specific directories
-install( TARGETS prettyprint DESTINATION ${prettyprint_SOURCE_DIR}/lib )
-install( FILES ${prettyprint_SOURCE_DIR}/include/prettyprint.h DESTINATION ${prettyprint_SOURCE_DIR}/inc )
+install( TARGETS prettyprint DESTINATION ${PROJECT_SOURCE_DIR}/lib )
+install( FILES ${PROJECT_SOURCE_DIR}/include/prettyprint.h DESTINATION ${PROJECT_SOURCE_DIR}/inc )
 
 #cmake_minimum_required(VERSION 2.8)
 #project( prettyprint )
